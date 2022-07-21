@@ -1,105 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>calculadora</title>
 
-	<style>
-
-	body{
-		font-family: sans-serif;
-	}
-
-	#calculator{
-		width: 200px;
-        background-image: linear-gradient(#b7b7b7, #9c9c9c);
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(247, 9, 9, 0.8);
-        margin: 15px auto;
-        
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 5px;
-        grid-template-rows: auto repeat(5, 40px);
-	}
-		
-
-	button{
-		padding: .25em;
-		
-	}
-
-	#display{
-		padding: 10px;
-        font-size: 1.4em;
-        text-align: right;
-        background-image: linear-gradient(#c5c5c5, #e0e0e0);
-        box-shadow: inset 3px 2px 0 white;
-        margin-bottom: 15px;
-        
-        grid-column: 1 / -1;
-	}
-
-	.mais{
-		border: 2px solid black;
-        grid-row: 5 / 7;
-        grid-column: 4 / 5;
-		
-		
-        
-	}
-
-	.zero{
-		background-color: #adadad;
-        grid-column: 1 / 3;
-		
-		
-
-	}
-
-	</style>
+	<script	type="text/javascript" src="index.js" defer></script>
+ 	<link rel="stylesheet" href="Estilo.css"/>	
 
 </head>
 <body>
 
 	<div id="calculator">
-		<div id="display">0</div>
+		<div id="display"><input type="text">texto</div>
 		
-		<button>AC</button> <button>%</button> <button>x</button> <button>/</button> 
-		<button>7</button> <button>8</button> <button>9</button> <button>=</button>
-		<button>4</button> <button>5</button> <button>6</button>  <button>-</button> 
-		<button>1</button> <button>2</button> <button>3</button> <button class="mais">+</button>
-        <button class="zero">0</button> <button>,</button>  
+		<button onclick="limpar()">AC</button>
+		<button onclick="modulo()">%</button> 
+		<button onclick="x()">x</button> 
+		<button onclick="divisao()">/</button> 
+		<button onclick="sete()">7</button> 
+		<button onclick="oito()">8</button>
+		<button onclick="nove()">9</button> 
+		<button onclick=" igual()">=</button>
+		<button onclick="quatro()">4</button> 
+		<button onclick="cinco()">5</button>
+		<button onclick="seis()">6</button>
+		<button onclick="menos()">-</button> 
+		<button onclick="um()">1</button> 
+		<button onclick="dois()">2</button>
+		<button onclick="tres()">3</button>
+		<button onclick="mais()" class="mais">+</button>
+        <button onclick="zero()" class="zero">0</button> 
+		<button onclick="ponto()">,</button>  
 		
 	</div>
 
 <!--	<img src="https://static.webshopapp.com/shops/038765/files/063260238/geeek-bamboo-wooden-calculator-calculator.jpg" style="width: 250px">-->
 
 
-<script>
-	function consulta() {
-//Pergunte o número para o usuário 
-//Converter o número 
-	   var n = prompt('Digite um número');
-		   n = parseFloat(n);
-//Criar uma variavel que servira de indice
-	   var i = 1;
-//enquanto indice <= 1000
-   //Concatena na variavel mensagem
-	   while (i <= 10 ) {
-			   texto += n+ " X " +i+ " = " + (n*i)+ '<br>';
-			   i++;
-	   }
-	   escreva.innerHTML = texto;
-   }
-   
-   var escreva = document.querySelector('#output');
 
-   var texto = '';
-   /*for (var i = 0; i < 1001; i++) {
-	  texto += 'i: ' +i+ '<br>';
-   }*/
-   
-   </script>
 </body>
 </html>
