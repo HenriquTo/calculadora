@@ -3,6 +3,13 @@ var operação = null;
 var n2 = '';
 
 function digito(numero){
+    if(n2 && operação && clicadoEmIgual){
+        clicadoEmIgual = false;
+        limpar();
+        n1 = numero;
+        display(n1);
+        return;
+    }
 
     if(operação !== null){
         n2 = n2 + numero;
@@ -50,9 +57,13 @@ function calcular(){
 
 function porcento(){
     if (!n2){
-        n2 = '';
+        limpar();
     } else {
-    var porsentagem = n1 * n2 / 100;
+        if(operação === '+' || operação === '-'){
+            var porsentagem = n1 * n2 / 100;
+        }else{
+            var porsentagem = n2 / 100;
+        }
     n2 = porsentagem;
     display(n2);    
     }
