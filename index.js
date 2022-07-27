@@ -1,56 +1,66 @@
-function um() {
-    var n1= 1
-    escreva.innerHTML = n1;
-}
-function dois() {
-    var n1= 2
-    escreva.innerHTML = n1;
-}
-function tres() {
-    var n1= 3
-    escreva.innerHTML = n1;
-}
-function quatro() {
-    var n1= 4
-    escreva.innerHTML = n1;
-}
-function cinco() {
-    var n1= 5
-    escreva.innerHTML = n1;
-}
-function seis() {
-    var n1= 6
-    escreva.innerHTML = n1;
-}
-function sete() {
-    var n1= 7
-    escreva.innerHTML = n1;
-}
-function oito() {
-    var n1= 8
-    escreva.innerHTML = n1;
-}
-function nove() {
-    var n1= 9
-    escreva.innerHTML = n1;
-}
-function zero() {
-    var n1= 0
-    escreva.innerHTML = n1;
-}
-function ponto() {
-    var n1= ','
-    escreva.innerHTML = n1;
-}
-function mais() {
-    var soma= n1+n1
-    escreva.innerHTML = soma;
-}
-   
-var escreva = document.querySelector('#display');
-   
-escreva.innerHTML = texto;
+var n1 = "0";
+var operação = null;
+var n2 = '';
 
-var limpa = '';
-  
-   
+function digito(numero){
+
+    if(operação !== null){
+        n2 = n2 + numero;
+        display(n2);
+    }else{
+        if(n1 === "0"){
+        n1 = numero;
+        } else{
+            n1 += numero;
+        }
+        display(n1)
+    }
+}
+
+function calcular(){
+    var nCalculado = 0
+    var _n1 = parseFloat(n1);
+    var _n2 = parseFloat(n2);
+
+
+    switch(operação){
+        case '+':
+            nCalculado = _n1 + _n2;
+            break;
+        case '-':
+            nCalculado = _n1 - _n2;
+            break;
+        case '*':
+            nCalculado = _n1 * _n2;
+            break;
+        case '/':
+            nCalculado = _n1 / _n2;
+            break;
+    }
+    return nCalculado;
+}
+
+function incluirCalculo(simbolo){
+    
+    if(operação === null || n2 === ''){
+        operação = simbolo;
+    } else {
+        var resultado = calcular();
+        n1 = resultado;
+        operação = simbolo;
+        n2 =  '';
+        display(n1);
+    }
+
+    console.log(n1, operação, n2);
+}
+
+function limpar() {
+    var limpa = '';
+        display(limpa);
+}
+
+function display(valor){
+    document.querySelector('#display').innerHTML= valor
+}
+
